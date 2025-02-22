@@ -1,0 +1,17 @@
+{
+  "name": "sass-portfolio",
+  "version": "1.0.0",
+  "description": "portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass app.scss app.css --watch --no-source-map"
+  },
+  "author": "eve",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.85.0"
+  },
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
+  }
+}

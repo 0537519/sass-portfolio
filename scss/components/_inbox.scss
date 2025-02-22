@@ -1,0 +1,170 @@
+@use '../abstracts' as *;
+
+.inbox {
+  padding: 4rem 0;
+  background: $gray-50;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+
+  // 左侧样式
+  &__left {
+    text-align: center;
+    padding: 2rem;
+    background: $white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px $black-light;
+  }
+
+  &__title {
+    color: $pink-600;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid $pink-200;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__desc {
+    color: $gray-600;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid $pink-200;
+    border-radius: 0.5rem;
+    resize: vertical;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $pink-400;
+    }
+
+    &::placeholder {
+      color: $gray-400;
+    }
+  }
+
+  &__submit {
+    align-self: center;
+    padding: 0.8rem 2.5rem;
+    background: $pink-500;
+    color: $white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $pink-600;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__item {
+    background: $white;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 2px 4px $black-light;
+  }
+
+  &__question {
+    color: $gray-800;
+    margin-bottom: 1rem;
+    text-indent: 2em;
+    line-height: 1.7;
+  }
+
+  &__answer {
+    color: $gray-600;
+    font-style: italic;
+    border-left: 3px solid $pink-300;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    &__left,
+    &__right {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    &__avatar {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+
+    &__left {
+      padding: 1.5rem;
+    }
+
+    &__input {
+      rows: 4;
+    }
+  }
+}
+
+.inbox__alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  background: $pink-500;
+  color: $white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px $black-light;
+  z-index: 9999;
+  animation: fadeInOut 2s ease;
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+}

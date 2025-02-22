@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+.about {
+    padding: $padding-y 0;
+    background: linear-gradient(to right, $pink-50 25%, $white 50%);
+    &__image {
+        width: 30rem;
+        height: 30rem;
+        position: relative;
+        @include responsive(lg) {
+            margin: 0 auto;
+        }
+        @include responsive(md) {
+            width: 25 rem;
+            height: 25 rem;
+        }
+        @include responsive(xsm) {
+            width: 20rem;
+            height: 20rem;
+        }
+        img {
+            @include imageCover;
+            border-radius: 50%;
+        }
+        &__small {
+            @include position(absolute,-3rem, null, null, -3rem);
+            width: 15rem;
+            height: 15rem;
+            @include responsive(md) {
+                width: 12rem;
+                height: 12rem;
+            }
+            @include responsive(xsm) {
+                width: 10rem;
+                height: 10rem;
+            }
+            img {
+                border-radius: 50%;
+                @include imageCover;
+                border: 0.7rem solid $pink-50;
+            }
+        }
+    }
+    &__info {
+        margin-top: 1.5rem;
+        &__message {
+            font-size: 2rem;
+            line-height: 2.8rem;
+            color: $black;
+            margin-top: -0.5rem;
+        }
+        &__block {
+            @include flexBox(space-between,null);
+            margin-top: 1.5rem;
+            padding-bottom: .5rem;
+            border-bottom: .1rem dashed $gray-300;
+            &__left {
+                font-size: 1rem;
+                font-weight: 600;
+                color: $black;
+                text-transform: capitalize;
+                @include responsive(xsm) {
+                    font-weight: 500;
+                }
+            }
+            &__right {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: $gray-700;
+                text-transform: capitalize;
+            }
+        }
+        &__socials {
+            margin-top: 2rem;
+            display: flex;
+            &__circle {
+                width: 3.5rem;
+                height: 3.5rem;
+                @include flexBox(center,center);
+                border-radius: 50%;
+                background: $pink-400;
+                margin-left: 1rem;
+                text-decoration: none;
+                &:first-child {
+                    margin-left: 0;
+                }
+                i {
+                    font-size: 1.6rem;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
